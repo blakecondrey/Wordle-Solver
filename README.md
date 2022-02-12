@@ -21,6 +21,8 @@ Loop through (0. 2078) range, create date at each iteration with the date increm
 </p>
 
 ```py
+import datetime
+
 for i in range(0, 2078):
     value_to_add = start_date + i * day_delta
     value_to_add = value_to_add.strftime("%Y-%m-%d")
