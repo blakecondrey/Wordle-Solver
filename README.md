@@ -4,7 +4,7 @@
 
 <p>I completed my daily <b>Wordle</b> challenge today, as always, to kill some time.<br>Having lived in Chrome DevTools and the <b>Components</b> application for my react apps the past several months, I decided to inspect the Wordle site to see what kind of technologies or methods were used.<br>As I was scrolling mindlessly, I noticed (rather unfortunately) that the asnwer key was stored in an array, and I quickly wondered how the program new which word to output simultaneously across the world; thinking there had to be some sort of <b>Date</b> object that it pointed to - which, it was. So I decided to flex some dystrophic <b>Python</b> muscles as they have been severely neglected.<br>Let's get to work!</p>
 <br>
-<p>I knew i was going to need the list of words from the side. Simple copypasta beginning at todays word.</p>
+<p>I knew I was going to need the list of words from the side. Simple copypasta beginning at todays word.</p>
 
 - Let's make a <b>data.json</b> file to hold this data.
 <br>
