@@ -2,7 +2,7 @@
 
 ...well, more like a file reader, but.... you get it.
 
-<p>I completed my daily <b>Wordle</b> challenge today, as always, to kill some time.<br>Having lived in Chrome DevTools and the <b>Components</b> application for my react apps the past several months, I decided to inspect the Wordle site to see what kind of technologies or methods were used.<br>As I was scrolling mindlessly, I noticed (rather unfortunately) that the asnwer key was stored in an array, and I quickly wondered how the program new which word to output simultaneously across the world; thinking there had to be some sort of <b>Date</b> object that it pointed to - which, it was. So I decided to flex some dystrophic <b>Python</b> muscles as they have been severely neglected.<br>Let's get to work!</p>
+<p>I completed my daily <b>Wordle</b> challenge today, as always, to kill some time.<br>Having lived in Chrome DevTools and the <b>Components</b> application for my react apps the past several months, I decided to inspect the Wordle site to see what kind of technologies or methods were used.<br>As I was scrolling mindlessly, I noticed (rather unfortunately) that the answer key was stored in an array, and I quickly wondered how the program knew which word to output simultaneously across the world - thinking there had to be some sort of <b>Date</b> object that it pointed to - which, it was. So I decided to flex some dystrophic <b>Python</b> muscles as they have been severely neglected.<br>Let's get to work!</p>
 <br>
 <p>I knew I was going to need the list of words from the site. Simple copypasta beginning at todays word.</p>
 
@@ -17,7 +17,7 @@ print(len(data))
 
 <br>
 <p>
-Loop through (0. 2078) range, create date at each iteration with the date incrementing by a delta of 1 day through each variable. Bind the variable's to the dictionary as the key-value pair to accompanying word
+Loop through (0, 2078) range, create date at each iteration with the date incrementing by a delta of 1 day through each variable. Bind the variable's to the dictionary as the key-value pair to accompanying word
 </p>
 
 ```py
@@ -37,7 +37,7 @@ Okay, so, I can't figure out how to loop through both the list of words and crea
 Udemy to the rescue. I remember learning zip() in Colt Steele's Modern Python Course.
 Way-ahead is to read from the json file and append each value to an empty list <b>words_list</b> and close the file, then open another empty list <b>days</b> where I'll iterate through the (0, 2078) range and append each date created to the <b>days</b> list.
 After that, it's real simple. Declare a variable <b>answer_key</b> to build the dictionary of zipped arrays of equal length into key-value pairs.
-I swapped the key-value pairs, as, if my memory serves correct, I think it will be easier to find a value match the days word with the dates as the key.
+I am choosing the key-value pairs, as, if my memory serves correct, I think it will be easier to find a value match the days word with the dates as the key.
 </p>
 
 ```py
@@ -60,13 +60,13 @@ days = []
 day_delta = datetime.timedelta(days=1)
 start_date = datetime.date.today()
 # 2078 = extracted from item count in words_list
-end_date = start_date + 2078 * day_delta
+# end_date = start_date + 2078 * day_delta
 
 # loop through range to step one day each loop and create a date string
 for i in range(0, 2078):
-    value_to_add = start_date + i * day_delta
-    value_to_add = value_to_add.strftime("%Y-%m-%d")
-    days.append(value_to_add)
+    key_to_add = start_date + i * day_delta
+    key_to_add = key_to_add.strftime("%Y-%m-%d")
+    days.append(key_to_add)
 
 # object to build key-value pair of matching correct word to applicable date
 answer_key = dict(zip(days, words_list))
@@ -103,6 +103,53 @@ with open('words.json') as readfile:
 ```
 
 <p>And it works! Like I said, more a file-reading exercise than it is an "algorithm" or a sophisticated "solver". Hope you learned something!</p>
+<p>If you want to run this program AS-IS:</p>
+
+```sh
+mkdir <your_directory_name>
+cd <your_directory_name>
+git clone https://github.com/blakecondrey/Wordle-Solver.git
+> Cloning into `Wordle-Solver`...
+> remote: Counting objects: 5, done.
+> remote: Compressing objects: 100% (5/5), done.
+> remove: Total 5 (delta 1), reused 5 (delta 1)
+> Unpacking objects: 100% (5/5), done.
+python3 solve.py
+>
+>
+>
+> <answer_of_the_day>
+>
+>
+>
+```
+
+<p>If you would like to see the file I/O in action:</p>
+
+```sh
+mkdir <your_directory_name>
+cd <your_directory_name>
+git clone https://github.com/blakecondrey/Wordle-Solver.git
+> Cloning into `Wordle-Solver`...
+> remote: Counting objects: 5, done.
+> remote: Compressing objects: 100% (5/5), done.
+> remove: Total 5 (delta 1), reused 5 (delta 1)
+> Unpacking objects: 100% (5/5), done.
+rm words.json
+touch words.json
+open words.json
+python3 data.py
+> Creating JSON file... # check words.json
+python3 solve.py
+>
+>
+>
+> <answer_of_the_day>
+>
+>
+>
+```
+
 <p>Could there have been a better way to do this? I can almost guarantee it! Feel free to fork, clone, or copypasta this project and do better than I did.</p>
 <br>
 <p><strong>www.blakecondrey.com</p>
