@@ -12,18 +12,18 @@
 
 ```py
 print(len(data))
-# output = 2079
+# output = 2064
 ```
 
 <br>
 <p>
-Loop through (0, 2078) range, create date at each iteration with the date incrementing by a delta of 1 day through each variable. Bind the variable's to the dictionary as the key-value pair to accompanying word
+Loop through (0, 2065) range, create date at each iteration with the date incrementing by a delta of 1 day through each variable. Bind the variable's to the dictionary as the key-value pair to accompanying word
 </p>
 
 ```py
 import datetime
 
-for i in range(0, 2078):
+for i in range(0, 2065):
     value_to_add = start_date + i * day_delta
     value_to_add = value_to_add.strftime("%Y-%m-%d")
 ```
@@ -35,7 +35,7 @@ Okay, so, I can't figure out how to loop through both the list of words and crea
 <br>
 <p>
 Udemy to the rescue. I remember learning zip() in Colt Steele's Modern Python Course.
-Way-ahead is to read from the json file and append each value to an empty list <b>words_list</b> and close the file, then open another empty list <b>days</b> where I'll iterate through the (0, 2078) range and append each date created to the <b>days</b> list.
+Way-ahead is to read from the json file and append each value to an empty list <b>words_list</b> and close the file, then open another empty list <b>days</b> where I'll iterate through the (0, 2065) range and append each date created to the <b>days</b> list.
 After that, it's real simple. Declare a variable <b>answer_key</b> to build the dictionary of zipped arrays of equal length into key-value pairs.
 I am choosing the key-value pairs, as, if my memory serves correct, I think it will be easier to find a value match the days word with the dates as the key.
 </p>
