@@ -19,10 +19,10 @@ days = []
 day_delta = datetime.timedelta(days=1)
 start_date = datetime.date.today()
 # 2078 = extracted from item count in words_list
-# end_date = start_date + 2078 * day_delta
+# end_date = start_date + 2065 * day_delta
 
 # loop through range to step one day each loop and create a date string
-for i in range(0, 2078):
+for i in range(0, 2065):
     key_to_add = start_date + i * day_delta
     key_to_add = key_to_add.strftime("%Y-%m-%d")
     days.append(key_to_add)
